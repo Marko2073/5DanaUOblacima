@@ -1,5 +1,7 @@
-﻿using _5DanaUOblacima.Models;
+﻿using _5DanaUOblacima.DTO;
+using _5DanaUOblacima.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -41,29 +43,35 @@ namespace _5DanaUOblacima.Controllers
 
 
         [HttpPost]
-        public IActionResult CreateTeam([FromBody] Team team)
+        public IActionResult CreateTeam([FromBody] TeamDto teamDto)
         {
-            if (_context.Teams.Any(t => t.TeamName == team.TeamName))
+            if (_context.Teams.Any(t => t.TeamName == teamDto.TeamName))
                 return Conflict("Team name must be unique.");
 
-            if (team.Players.Count != 5)
+            if (teamDto.players.Count != 5)
                 return BadRequest("A team must have exactly 5 players.");
 
-            var playerIds = team.Players.Select(p => p.Id).ToList();
-            var players = _context.Players.Where(p => playerIds.Contains(p.Id)).ToList();
+            var players = _context.Players
+                .Where(p => teamDto.players.Contains(p.Id))
+                .AsNoTracking() 
+                .ToList();
 
             if (players.Count != 5)
                 return BadRequest("One or more players not found.");
 
-            if (players.Any(p => p.TeamId != null))
-                return BadRequest("One or more players are already in a team.");
+            var team = new Team
+            {
+                TeamName = teamDto.TeamName,
+                Players = players.ToList()
+            };
 
             foreach (var player in players)
             {
                 player.TeamId = team.Id;
+
+                _context.Entry(player).State = EntityState.Modified;  
             }
 
-            team.Players = players;
             _context.Teams.Add(team);
             _context.SaveChanges();
             return Ok(team);
