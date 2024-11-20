@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "5DanaUOblacima", "5DanaUOblacima\5DanaUOblacima.csproj", "{855198A1-BE1A-481E-9620-1E584998D16A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "5DanaUOblacima.Tests", "5DanaUOblacima.Tests\5DanaUOblacima.Tests.csproj", "{BE8BC9D4-6B97-43B7-B527-436C47C5AD74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{855198A1-BE1A-481E-9620-1E584998D16A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{855198A1-BE1A-481E-9620-1E584998D16A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{855198A1-BE1A-481E-9620-1E584998D16A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{855198A1-BE1A-481E-9620-1E584998D16A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE8BC9D4-6B97-43B7-B527-436C47C5AD74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE8BC9D4-6B97-43B7-B527-436C47C5AD74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE8BC9D4-6B97-43B7-B527-436C47C5AD74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE8BC9D4-6B97-43B7-B527-436C47C5AD74}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {883CDA0E-FE52-40C5-B23F-4263F356DBCE}
+	EndGlobalSection
+EndGlobal
