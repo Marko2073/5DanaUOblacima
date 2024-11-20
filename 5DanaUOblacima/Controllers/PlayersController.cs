@@ -38,7 +38,7 @@ namespace _5DanaUOblacima.Controllers
         {
             if (_context.Players.Any(p => p.Nickname == player.Nickname))
             {
-                throw new System.Exception("Nickname must be unique.");
+                
                 
                 return Conflict("Nickname must be unique.");
                 
